@@ -2,11 +2,23 @@ grammar Expr;
 
 prog: expr EOF;
 
-expr: left=expr op='^' right=expr         #infixExpr
-    | left=expr op=('+'|'-') right=expr   #infixExpr
-    | left=expr op=('*'|'/') right=expr   #infixExpr
-    | INT                                 #numberExpr
-    | '(' expr ')'                        #parensExpr
+expr: left=expr op='^' right=expr             #infixExpr
+    | left=expr op=('+'|'-') right=expr       #infixExpr
+    | left=expr op=('*'|'/') right=expr       #infixExpr
+    | 'log(' expr ')'                        #logExpr
+    | 'sin(' expr ')'                        #sinExpr
+    | 'cos(' expr ')'                        #cosExpr
+    | 'tan(' expr ')'                        #tanExpr
+    | 'asin(' expr ')'                       #asinExpr
+    | 'acos(' expr ')'                       #acosExpr
+    | 'atan(' expr ')'                       #atanExpr
+    | 'fac(' expr ')'                        #facExpr
+    | 'sqrt(' expr ')'                       #sqrtExpr
+    | 'cmtoin(' expr ')'                     #cmtoinExpr
+    | 'mtoft(' expr ')'                      #mtoftExpr
+    | 'kgtolb(' expr ')'                     #kgtolbExpr
+    | INT                                     #numberExpr
+    | '(' expr ')'                            #parensExpr
     ;
 
 OP_ADD: '+';
